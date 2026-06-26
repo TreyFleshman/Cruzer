@@ -1,7 +1,10 @@
+import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 
 export function SiteHeader({ showBack }) {
   const navigate = useNavigate();
+  const [menuOpen, setMenuOpen] = useState(false);
+
   return (
     <header>
       <nav>
@@ -11,13 +14,25 @@ export function SiteHeader({ showBack }) {
               ← Back
             </button>
           )}
-          <Link to="/" className="logo"><span className="skull">💀</span>MYKE CRUZ <span className="x">×</span> INKY EDC</Link>
+          <Link to="/" className="logo" onClick={() => setMenuOpen(false)}>
+            <span className="skull">💀</span>MYKE CRUZ <span className="x">×</span> INKY EDC
+          </Link>
         </div>
-        <ul>
-          <li><a href="/#about">About</a></li>
-          <li><a href="/#work">The Work</a></li>
-          <li><a href="/#community">Community</a></li>
-          <li><a href="/#contact">Contact</a></li>
+        <button
+          className={`nav-toggle ${menuOpen ? 'open' : ''}`}
+          onClick={() => setMenuOpen((o) => !o)}
+          aria-label="Toggle menu"
+          aria-expanded={menuOpen}
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+        <ul className={menuOpen ? 'open' : ''}>
+          <li><a href="/#about" onClick={() => setMenuOpen(false)}>About</a></li>
+          <li><a href="/#work" onClick={() => setMenuOpen(false)}>The Work</a></li>
+          <li><a href="/#community" onClick={() => setMenuOpen(false)}>Community</a></li>
+          <li><a href="/#contact" onClick={() => setMenuOpen(false)}>Contact</a></li>
         </ul>
       </nav>
     </header>
