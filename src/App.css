@@ -383,17 +383,9 @@
   border:2px dashed rgba(255,255,255,0.25);
   border-radius:6px;
 }
-.skull-icon{width:80%;height:80%;position:relative;z-index:1;}
-.skull-icon rect,
-.skull-icon circle:not(.skull-cutout),
-.skull-icon ellipse,
-.skull-icon path:not(.skull-cutout){
-  fill:#cfcfcf;
-  stroke:#3a3a3a;
-  stroke-width:1.5;
-}
-.skull-icon .skull-cutout{
-  fill:#0a0a0a;
+.skull-icon{
+  width:80%;height:80%;object-fit:contain;
+  position:relative;z-index:1;
 }
 
 .collab{
